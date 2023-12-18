@@ -1,0 +1,10 @@
+.form-control:focus{
+    box-shadow: 0 0 1px 2px #198754;
+    border-color: #198754;
+}
+.form-control{
+    border-radius: 0%;
+}
+.btn{
+    border-radius: 0%;
+}
