@@ -22,10 +22,6 @@ function App() {
     setMode(mode === 'light' ? 'dark' : 'light');
   }
 
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
-
   return (
     <div className='min-vh-100 py-3' style={{ background: mode === 'light' ? 'skyblue' : '#111' }}>
       {/* Mode */}

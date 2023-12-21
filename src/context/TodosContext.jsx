@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 const TodosContext = createContext(null);
@@ -47,17 +47,22 @@ function todosReducer(todos, action) {
     }
 }
 
-function TodosProvider({children}){
+function TodosProvider({ children }) {
     const findTodosOnLocalStorage = () => {
         const todos = JSON.parse(localStorage.getItem('todos'));
         if (todos) {
-          return todos;
+            return todos;
         } else {
-          return [];
+            return [];
         }
-      }
-      const [todos, todosDispatch] = useReducer(todosReducer, findTodosOnLocalStorage());
-    return(
+    }
+    const [todos, todosDispatch] = useReducer(todosReducer, findTodosOnLocalStorage());
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
+
+    return (
         <TodosContext.Provider value={todos}>
             <TodosDispatchContext.Provider value={todosDispatch}>
                 {children}
