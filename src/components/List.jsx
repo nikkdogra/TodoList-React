@@ -1,8 +1,10 @@
+import { useTodos } from "../context/TodosContext";
 import Todo from "./Todo";
 
-function List({ todos, onDeleteTodo, onCompleteTodo, on_Edit_Icon_Click, filter, mode, onPinTodo }) {
+function List({filter}) {
+    const todos = useTodos();
     const generateTodos = (element) => {
-        return <Todo key={element.id} id={element.id} title={element.title} description={element.description} completed={element.completed} pinned={element.pinned} onDeleteTodo={onDeleteTodo} onCompleteTodo={onCompleteTodo} on_Edit_Icon_Click={on_Edit_Icon_Click} mode={mode} onPinTodo={onPinTodo}/>
+        return <Todo key={element.id} id={element.id} title={element.title} description={element.description} completed={element.completed} pinned={element.pinned} />
     }
     const filterTodos = () => {
         switch (filter) {
