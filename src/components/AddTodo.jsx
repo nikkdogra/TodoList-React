@@ -32,7 +32,7 @@ function AddTodo({ }) {
     }, [editableTodo]);
     return (
         <form onSubmit={handleSubmit}>
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-md-flex justify-content-between align-items-center">
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label fw-bold">Title: </label>
                     <input type="text" className="form-control" id="title" placeholder="Enter Title Of Your Todo" name="title" value={todo.title} onChange={handleChange} autoComplete="off" spellCheck='false' />
@@ -41,7 +41,7 @@ function AddTodo({ }) {
                     <label htmlFor="description" className="form-label fw-bold">Description: </label>
                     <input type="text" className="form-control" id="description" placeholder="Enter Description Of Your Todo" name="description" value={todo.description} onChange={handleChange} autoComplete="off" spellCheck='false' />
                 </div>
-                <button type="submit" className="btn btn-success py-1 px-3 fs-5 mt-3">{editableTodo ? 'Edit' : 'Add'}</button>
+                <button type="submit" className="btn btn-success py-1 px-3 fs-6 fs-md-5 mt-3">{editableTodo ? 'Edit' : 'Add'}</button>
             </div>
         </form>
     )
